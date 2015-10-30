@@ -14,6 +14,9 @@ var Room = (function (_super) {
         this.handler = new events_1.Handler(this);
         console.log("Handler created");
     }
+    Room.prototype.sendAuth = function () {
+        return true;
+    };
     Room.prototype.emission = function (data) {
         var event = data.split(":")[0];
         var rest = data.split(":").slice(1);

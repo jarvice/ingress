@@ -2,7 +2,7 @@ import {Connection} from "../connection/connection"
 import {Incommon} from "../interfaces/interfaces"
 import {Handler} from "./events"
 
-// testing github on dev branch only... I hope.
+
 
 export class Room extends Connection implements Incommon {
 
@@ -17,6 +17,12 @@ export class Room extends Connection implements Incommon {
         super(this)
         this.handler = new Handler(this)
         console.log("Handler created")
+
+    }
+
+    sendAuth(): boolean {
+
+        return true
 
     }
 
