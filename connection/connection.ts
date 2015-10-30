@@ -38,9 +38,9 @@ export class Connection {
 
     sendCommand(...args: any[]): void {
 
-        let boolean_value: boolean = args.slice(-1)[0]
+        let use_initial_byte: boolean = args.slice(-1)[0]
         let commands: string[] = args.slice(0, -1)
-        let ending = (boolean_value === true) ? "\0" : "\r\n";
+        let ending = (use_initial_byte === true) ? "\0" : "\r\n";
 
         let data = commands.join(":") + ending
 

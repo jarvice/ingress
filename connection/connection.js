@@ -27,9 +27,9 @@ var Connection = (function () {
         for (var _i = 0; _i < arguments.length; _i++) {
             args[_i - 0] = arguments[_i];
         }
-        var boolean_value = args.slice(-1)[0];
+        var use_initial_byte = args.slice(-1)[0];
         var commands = args.slice(0, -1);
-        var ending = (boolean_value === true) ? "\0" : "\r\n";
+        var ending = (use_initial_byte === true) ? "\0" : "\r\n";
         var data = commands.join(":") + ending;
         this.socket.send(data, function (err) {
             if (err) {
