@@ -12,7 +12,7 @@ var Connection = (function () {
         var _this = this;
         this.socket.on("open", function () {
             console.log(_this.connection.name);
-            _this.sendCommand("bauth", "inepaha", "", "", "", true);
+            _this.connection.sendAuth();
         });
         this.socket.on("message", function (message, flags) {
             _this.connection.emission(message);

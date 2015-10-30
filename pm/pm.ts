@@ -15,7 +15,11 @@ export class Pm extends Connection implements Incommon {
     }
 
     emission() {
-        
+
+    }
+
+    sendAuth(): boolean {
+        return true
     }
 
 }

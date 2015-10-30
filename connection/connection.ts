@@ -21,7 +21,7 @@ export class Connection {
 
         this.socket.on("open", () => {
             console.log(this.connection.name)
-            this.sendCommand("bauth", "inepaha", "", "", "", true) // ("bauth:inepaha:::\x00")
+            this.connection.sendAuth()
 
         })
 

@@ -12,6 +12,9 @@ var Pm = (function (_super) {
     }
     Pm.prototype.emission = function () {
     };
+    Pm.prototype.sendAuth = function () {
+        return true;
+    };
     return Pm;
 })(connection_1.Connection);
 exports.Pm = Pm;
