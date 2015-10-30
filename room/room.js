@@ -4,21 +4,22 @@ var __extends = (this && this.__extends) || function (d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var connection_1 = require("../connection/connection");
-var room_1 = require("../events/room");
+var events_1 = require("./events");
 var Room = (function (_super) {
     __extends(Room, _super);
     function Room() {
         this.name = "inepeha";
         this.addr = "ws://s26.chatango.com:8080/";
-        this.handler = new room_1.Handler();
         _super.call(this, this);
+        this.handler = new events_1.Handler(this);
+        console.log("Handler created");
     }
     Room.prototype.emission = function (data) {
         var event = data.split(":")[0];
         var rest = data.split(":").slice(1);
         var func = this.handler[event];
         if (typeof func === "function") {
-            func(rest);
+            func.bind(this.handler)(rest);
         }
     };
     return Room;

@@ -29,8 +29,8 @@ var Connection = (function () {
         }
         var use_initial_byte = args.slice(-1)[0];
         var commands = args.slice(0, -1);
-        var ending = (use_initial_byte === true) ? "\0" : "\r\n";
-        var data = commands.join(":") + ending;
+        var termination_bytes = (use_initial_byte === true) ? "\0" : "\r\n";
+        var data = commands.join(":") + termination_bytes;
         this.socket.send(data, function (err) {
             if (err) {
                 console.log("SOCKET ERROR", err);

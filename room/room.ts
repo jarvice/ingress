@@ -1,6 +1,6 @@
 import {Connection} from "../connection/connection"
 import {Incommon} from "../interfaces/interfaces"
-import {Handler} from "../events/room"
+import {Handler} from "./events"
 
 // testing github on dev branch only... I hope.
 
@@ -8,15 +8,15 @@ export class Room extends Connection implements Incommon {
 
     public name: string
     public addr: string
-    private handler: Handler
+    public handler: Handler
 
     constructor() {
 
         this.name = "inepeha"
         this.addr = "ws://s26.chatango.com:8080/"
-        this.handler = new Handler()
-
         super(this)
+        this.handler = new Handler(this)
+        console.log("Handler created")
 
     }
 
@@ -27,7 +27,7 @@ export class Room extends Connection implements Incommon {
         let func: Function = this.handler[event]
 
         if (typeof func === "function") {
-            func(rest)
+            func.bind(this.handler)(rest)
         }
     }
 

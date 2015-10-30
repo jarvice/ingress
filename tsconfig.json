@@ -21,9 +21,9 @@
     ],
     "files": [
         "connection/connection.ts",
-        "events/room.ts",
         "interfaces/interfaces.ts",
         "pm/pm.ts",
+        "room/events.ts",
         "room/room.ts",
         "room/utils.ts",
         "typings/node/node.d.ts",
